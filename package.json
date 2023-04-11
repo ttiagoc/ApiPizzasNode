@@ -1,0 +1,15 @@
+{
+  "name": "accediendo-a-mssql-y-usando-env-",
+  "version": "1.0.0",
+  "description": "primer prueba ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mssql": "^9.1.1"
+  }
+}
