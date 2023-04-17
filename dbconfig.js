@@ -1,15 +1,15 @@
 
 
-// import 'dotenv/config'
+import 'dotenv/config'
 
 const config = {
-    user : 'Pizzas',
-    password : 'p1zz@s',
-    server : 'A-PHZ2-LUM-05',
-    database : 'DAI-Pizzas',
-    options:{
-        trustServerCertificate:true,
-        turstedConnection:true,
+    user: process.env.DB_USER,
+    password:  process.env.DB_PASSWORD,
+    server:  process.env.DB_SERVER,
+    database:  process.env.DB_DATABASE,
+    options: {
+        trustServerCertificate: true,
+        turstedConnection: true,
     }
 }
 

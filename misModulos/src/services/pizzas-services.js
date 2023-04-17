@@ -1,7 +1,7 @@
 
 import sql from 'mssql';
 import config from '../../../dbconfig.js';
-import fs from 'fs'
+import EscribirError from '../modules/log-helper.js';
 
 
 export default class PizzaService {
@@ -16,19 +16,10 @@ export default class PizzaService {
             resultado = result.recordsets[0] 
             
         } catch (error) {
-            console.log(error)
-            // const content = error;
-
-            // fs.writeFile('C:\Users\46878457\Desktop\Accediendo-a-MSSQL-y-usando-ENV-\misModulos\src\modules', content, err => {
-            // if (err) {
-            //      console.error(err);
-            //      }
-            // // file written successfully
-            // });
-
-        // 
+            //console.log(error)
+            EscribirError(error)
         }
-        return resultado
+        return resultado;
     }
 
     getById = async (id) => {
@@ -40,7 +31,7 @@ export default class PizzaService {
             resultado = result.recordsets[0][0] 
             
         } catch (error) {
-            console.log(error)
+            EscribirError(error)
         }
         return resultado
     }
@@ -54,7 +45,7 @@ export default class PizzaService {
             resultado = result.rowsAffected;
             
         } catch (error) {
-            console.log(error)
+            EscribirError(error)
         }
         return resultado
     }
@@ -73,7 +64,7 @@ export default class PizzaService {
             resultado = result.rowsAffected;
             
         } catch (error) {
-            console.log(error)
+            EscribirError(error)
         }
         return resultado
     }
@@ -81,7 +72,7 @@ export default class PizzaService {
 
     Update = async (id,nombre,libreGluten,importe,descripcion) => {
         let resultado = null
-        console.log("Estoy en : PizzaService.Insert")
+        console.log("Estoy en : PizzaService.Update")
         try {
             let pool = await sql.connect(config)
             let result = await pool.request()
@@ -94,7 +85,7 @@ export default class PizzaService {
             resultado = result.rowsAffected;
             
         } catch (error) {
-            console.log(error)
+            EscribirError(error)
         }
         return resultado
     }

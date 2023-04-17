@@ -12,8 +12,8 @@ let svc = new PizzaService();
  //console.log(resultGetAll)
 
 
-//let resultById = await svc.getById(1);
-//console.log(resultById)
+ let resultById = await svc.getById(2);
+ console.log(resultById)
 
 
 // let resultDelete = await svc.deleteById(1);
@@ -22,7 +22,7 @@ let svc = new PizzaService();
 // let resultInsert = await svc.Insert("Tiago",1,200,"Muy buena")
 // console.log(resultInsert)
 
-let resultUpdate = await svc.Update(2,"Tiago",1,200,"buena")
-console.log(resultUpdate)
+// let resultUpdate = await svc.Update(2,"Tiago",1,200,"buena")
+// console.log(resultUpdate)
 
 
