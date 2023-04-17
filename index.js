@@ -19,8 +19,8 @@ let svc = new PizzaService();
 // let resultDelete = await svc.deleteById(1);
 // console.log(resultDelete)
 
-// let resultInsert = await svc.Insert("Tiago",1,200,"Muy buena")
-// console.log(resultInsert)
+ let resultInsert = await svc.Insert("Tiago",0,2100,"Muy bddduena")
+ console.log(resultInsert)
 
 // let resultUpdate = await svc.Update(2,"Tiago",1,200,"buena")
 // console.log(resultUpdate)

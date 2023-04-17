@@ -56,10 +56,10 @@ export default class PizzaService {
         try {
             let pool = await sql.connect(config)
             let result = await pool.request()
-            .input('pNombre',sql.VarChar,nombre)
-            .input('pLibreGluten',sql.Bit,libreGluten)
-            .input('pImporte',sql.Float,importe)
-            .input('pDescripción',sql.VarChar,descripcion)
+            .input('pNombre',sql.VarChar, nombre ?? '')
+            .input('pLibreGluten',sql.Bit,libreGluten ?? '')
+            .input('pImporte',sql.Float,importe  ?? '')
+            .input('pDescripción',sql.VarChar,descripcion ?? '')
             .query("INSERT INTO Pizzas(Nombre,LibreGluten,Importe,Descripcion) VALUES(@pNombre, @pLibreGluten, @pImporte, @pDescripción)")
             resultado = result.rowsAffected;
             
