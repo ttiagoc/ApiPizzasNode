@@ -3,16 +3,18 @@ import sql from 'mssql';
 import config from '../../../dbconfig.js';
 import EscribirError from '../modules/log-helper.js';
 
-
 export default class PizzaService {
 
 
-    getAll = async () => {
+    getAll = async (top,oderField,sortOrder) => {
         let resultado = null
+        let queryTop = "TOP " + top
+        let queryorder = "ORDER BY " + oderField
         console.log("Estoy en : PizzaService.GetAll")
         try {
             let pool = await sql.connect(config)
-            let result = await pool.request().query("SELECT * FROM Pizzas")
+            let result = await pool.request().
+                                    query("SELECT " + queryTop  + " * FROM Pizzas " + queryorder  + " " + sortOrder )
             resultado = result.recordsets[0] 
             
         } catch (error) {

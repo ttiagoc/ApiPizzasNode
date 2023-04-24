@@ -5,7 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "select": "node index-select.js",
+    "insert": "node index-insert.js",
+    "update": "node index-update.js",
+    "delete": "node index-delete.js"
   },
   "author": "",
   "license": "ISC",
