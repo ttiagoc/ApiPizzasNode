@@ -3,7 +3,7 @@ import PizzaService from './misModulos/src/services/pizzas-services.js';
 
 let svc = new PizzaService();
 
- let resultGetAll = await svc.getAll("2", "Nombre", "asc");
+ let resultGetAll = await svc.getAll(null, null , "desc");
  console.log(resultGetAll)
 
 
