@@ -11,18 +11,19 @@ export default class PizzaService {
         let queryTop = ""
         let queryOrderField = ""
         let querySortOrder = ""
-        if(top != null){queryTop = "TOP " + top}
+
+      /*  if(top != null){queryTop = "TOP " + top}
         if(sortOrder != null){querySortOrder = sortOrder}
         if(orderField != null){queryOrderField = "ORDER BY " + orderField}else{
              querySortOrder = ""
-        }
-      
+        }  */
+
         console.log("Estoy en : PizzaService.GetAll")
-        console.log("SELECT " + queryTop + " * FROM Pizzas " + queryOrderField + " " + querySortOrder)
+        
         try {
             let pool = await sql.connect(config)
             let result = await pool.request().
-                                    query("SELECT " + queryTop + " * FROM Pizzas " + queryOrderField + " " + querySortOrder )
+                                    query("SELECT " + (top==null ? '' : "TOP " + top)+ " * FROM Pizzas " +(orderField== null ? '' : "ORDER BY "  + orderField) + " " + (sortOrder == null ? ''  : sortOrder) )
                                     
             resultado = result.recordsets[0] 
             
