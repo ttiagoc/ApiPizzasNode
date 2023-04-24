@@ -8,11 +8,12 @@ export default class PizzaService {
 
     getAll = async (top,orderField,sortOrder) => {
         let resultado = null
-        let queryTop = ""
+       
+       /*  let queryTop = ""
         let queryOrderField = ""
         let querySortOrder = ""
 
-      /*  if(top != null){queryTop = "TOP " + top}
+       if(top != null){queryTop = "TOP " + top}
         if(sortOrder != null){querySortOrder = sortOrder}
         if(orderField != null){queryOrderField = "ORDER BY " + orderField}else{
              querySortOrder = ""

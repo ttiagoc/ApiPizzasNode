@@ -4,7 +4,7 @@ export default function EscribirError(error){
 const content = String(error);
 
 
-fs.appendFile('./errores/error.txt', "   " + content, err => {
+fs.appendFile('./errores/error.txt', "   " + content + " \n", err => {
   if (err) {
     console.error(err);
   }
