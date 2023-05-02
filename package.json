@@ -9,12 +9,14 @@
     "select": "node index-select.js",
     "insert": "node index-insert.js",
     "update": "node index-update.js",
-    "delete": "node index-delete.js"
+    "delete": "node index-delete.js",
+    "index":"node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "mssql": "^9.1.1"
   }
 }

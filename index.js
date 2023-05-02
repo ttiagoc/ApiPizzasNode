@@ -3,26 +3,45 @@
 import config from './dbconfig.js';
 import sql from 'mssql';
 import PizzaService from './misModulos/src/services/pizzas-services.js';
-// let pool  = await sql.connect(config)
-// let result = await pool.request().query("SELECT TOP 2 * FROM Pizzas")
-
-let svc = new PizzaService();
-
- //let resultGetAll = await svc.getAll();
- //console.log(resultGetAll)
+import express from 'express';
 
 
- let resultById = await svc.getById(2);
- console.log(resultById)
+const app = express()
+const port = 3000
 
 
-// let resultDelete = await svc.deleteById(1);
-// console.log(resultDelete)
 
- let resultInsert = await svc.Insert("Tiago",0,2100,"Muy bddduena")
- console.log(resultInsert)
+app.get('/', function(req,res){
+    try {
+        let svc = new PizzaService();
+        let result = svc.getAll()
+        res.send(result)
+    } catch (error) {
+        res.send("error")
+    }
+   
+})
 
-// let resultUpdate = await svc.Update(2,"Tiago",1,200,"buena")
-// console.log(resultUpdate)
 
 
+//  //let resultGetAll = await svc.getAll();
+//  //console.log(resultGetAll)
+
+
+//  let resultById = await svc.getById(2);
+//  console.log(resultById)
+
+
+// // let resultDelete = await svc.deleteById(1);
+// // console.log(resultDelete)
+
+//  let resultInsert = await svc.Insert("Tiago",0,2100,"Muy bddduena")
+//  console.log(resultInsert)
+
+// // let resultUpdate = await svc.Update(2,"Tiago",1,200,"buena")
+// // console.log(resultUpdate)
+
+
+ app.listen(port,() => {
+     console.log('Example app listening on port ' + port)
+ })
