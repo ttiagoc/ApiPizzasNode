@@ -37,11 +37,14 @@ export default class PizzaService {
 
     getById = async (id) => {
         let resultado = null
+       
         console.log("Estoy en : PizzaService.GetByid")
         try {
             let pool = await sql.connect(config)
             let result = await pool.request().input('pid',sql.Int,id).query("SELECT * FROM Pizzas WHERE id = @pId")
+       
             resultado = result.recordsets[0][0] 
+           
             
         } catch (error) {
             EscribirError(error)

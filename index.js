@@ -9,12 +9,13 @@ import express from 'express';
 const app = express()
 const port = 3000
 
+let svc = new PizzaService();
 
-
-app.get('/', function(req,res){
+app.get('/', async function(req,res){
     try {
-        let svc = new PizzaService();
-        let result = svc.getAll()
+      
+        let result = await svc.getAll(2, "Nombre" , null)
+     
         res.send(result)
     } catch (error) {
         res.send("error")
@@ -22,6 +23,20 @@ app.get('/', function(req,res){
    
 })
 
+app.get('/pizzaId/:id', async function(req,res){
+    try {
+      
+        let parametros = req.params
+       
+
+        let result = await svc.getById(parametros.id)
+     
+        res.send(result)
+    } catch (error) {
+        res.send("error")
+    }
+   
+})
 
 
 //  //let resultGetAll = await svc.getAll();
