@@ -15,7 +15,7 @@ app.get('/', async function(req,res){
     try {
       
         let result = await svc.getAll(2, "Nombre" , null)
-     
+
         res.send(result)
     } catch (error) {
         res.send("error")
@@ -37,6 +37,56 @@ app.get('/pizzaId/:id', async function(req,res){
     }
    
 })
+
+app.post('/insert', async function(req,res){
+    try {
+      
+      //  let parametros = req.params
+       
+        let result = await svc.Insert("tiago", 0, 444, "insertada desde API")
+     
+        res.send(result)
+    } catch (error) {
+        res.send("error")
+    }
+   
+})
+
+app.put('/update', async function(req,res){
+    try {
+      
+      //  let parametros = req.params
+       
+        let result = await svc.Update(12,"Tiago",1,200,"modificada desde API")
+      
+        res.send(result)
+    } catch (error) {
+        res.send("error")
+    }
+   
+})
+
+
+app.delete('/delete/:id', async function(req,res){
+    try {
+      
+        let parametros = req.params
+       
+        let result = await svc.deleteById(parametros.id);
+      
+        res.send(result)
+    } catch (error) {
+        res.send("error")
+    }
+   
+})
+
+
+
+
+
+
+
 
 
 //  //let resultGetAll = await svc.getAll();

@@ -22,18 +22,4 @@
    ConnectionError: Failed to connect to A-PHZ2-CEO-011:1433 - getaddrinfo ENOTFOUND A-PHZ2-CEO-011 
    ConnectionError: Failed to connect to A-PHZ2-CEO-011:1433 - getaddrinfo ENOTFOUND A-PHZ2-CEO-011 
    ConnectionError: Failed to connect to A-PHZ2-CEO-011:1433 - getaddrinfo ENOTFOUND A-PHZ2-CEO-011 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
-   RequestError: Validation failed for parameter 'pid'. Invalid number. 
+
