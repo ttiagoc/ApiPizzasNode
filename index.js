@@ -30,10 +30,10 @@ app.get('/pizzaId/:id', async function (req, res) {
 
         let parametros = req.params
 
+         let result = await svc.getById(parametros.id)
 
-        let result = await svc.getById(parametros.id)
-
-        res.send(result)
+         res.send(result)
+         
     } catch (error) {
 
         EscribirError(error)
@@ -48,11 +48,9 @@ app.post('/insert', async function (req, res) {
         // console.log(parametros)
         // let result = await svc.Insert(parametros.nombre, parametros.glutenFree, parametros.importe, parametros.descripcion)
 
-        // res.send(result)
-
-
+  
         let Objparametros = req.body
-        console.log(Objparametros)
+       
 
         let result = await svc.Insert(Objparametros.nombre, Objparametros.glutenFree, Objparametros.importe, Objparametros.descripcion)
 
@@ -69,11 +67,15 @@ app.post('/insert', async function (req, res) {
 app.put('/update', async function (req, res) {
     try {
 
-        let parametros = req.query
+        // let parametros = req.query
+        // let result = await svc.Update(parametros.id, parametros.nombre, parametros.glutenFree, parametros.importe, parametros.descripcion)
 
-        let result = await svc.Update(parametros.id, parametros.nombre, parametros.glutenFree, parametros.importe, parametros.descripcion)
+        let Objparametros = req.body
+       
+        let result = await svc.Update(Objparametros.id,Objparametros.nombre, Objparametros.glutenFree, Objparametros.importe, Objparametros.descripcion)
 
         res.send(result)
+
     } catch (error) {
         EscribirError(error)
     }
@@ -95,22 +97,7 @@ app.delete('/delete/:id', async function (req, res) {
 
 })
 
-    app.post('/ejemplo-req-json', (req, res) => {
-
-
-
-    let objRecibido = req.body;
-    console.log(objRecibido)
-     res.send(objRecibido);
-
-
-    })
-
-
-
-
-
-
+  
 
 //  //let resultGetAll = await svc.getAll();
 //  //console.log(resultGetAll)
