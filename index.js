@@ -14,8 +14,8 @@ let svc = new PizzaService();
 app.get('/', async function(req,res){
     try {
       
-        let result = await svc.getAll(2, "Nombre" , null)
-
+        let parametros = req.query
+        let result = await svc.getAll(parametros.top,parametros.orderField ,parametros.sortOrder)
         res.send(result)
     } catch (error) {
         res.send("error")
@@ -40,10 +40,10 @@ app.get('/pizzaId/:id', async function(req,res){
 
 app.post('/insert', async function(req,res){
     try {
-      
-      //  let parametros = req.params
-       
-        let result = await svc.Insert("tiago", 0, 444, "insertada desde API")
+        
+        let parametros = req.query
+        console.log(parametros)
+        let result = await svc.Insert(parametros.nombre,parametros.glutenFree,parametros.importe,parametros.descripcion)
      
         res.send(result)
     } catch (error) {
@@ -55,9 +55,9 @@ app.post('/insert', async function(req,res){
 app.put('/update', async function(req,res){
     try {
       
-      //  let parametros = req.params
+        let parametros = req.query
        
-        let result = await svc.Update(12,"Tiago",1,200,"modificada desde API")
+        let result = await svc.Update(parametros.id,parametros.nombre,parametros.glutenFree,parametros.importe,parametros.descripcion)
       
         res.send(result)
     } catch (error) {

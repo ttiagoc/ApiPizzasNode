@@ -58,8 +58,10 @@ export default class PizzaService {
         try {
             let pool = await sql.connect(config)
             let result = await pool.request().input('pid',sql.Int,id).query("DELETE FROM Pizzas WHERE id = @pId")
+
             resultado = result.rowsAffected;
-            
+
+        
         } catch (error) {
             EscribirError(error)
         }
