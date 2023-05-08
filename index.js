@@ -11,6 +11,8 @@ const port = 3000
 
 let svc = new PizzaService();
 
+app.use(express.json());
+
 app.get('/', async function (req, res) {
     try {
 
@@ -33,7 +35,8 @@ app.get('/pizzaId/:id', async function (req, res) {
 
         res.send(result)
     } catch (error) {
-        res.send("error")
+
+        EscribirError(error)
     }
 
 })
@@ -41,13 +44,24 @@ app.get('/pizzaId/:id', async function (req, res) {
 app.post('/insert', async function (req, res) {
     try {
 
-        let parametros = req.query
-        console.log(parametros)
-        let result = await svc.Insert(parametros.nombre, parametros.glutenFree, parametros.importe, parametros.descripcion)
+        // let parametros = req.query
+        // console.log(parametros)
+        // let result = await svc.Insert(parametros.nombre, parametros.glutenFree, parametros.importe, parametros.descripcion)
+
+        // res.send(result)
+
+
+        let Objparametros = req.body
+        console.log(Objparametros)
+
+        let result = await svc.Insert(Objparametros.nombre, Objparametros.glutenFree, Objparametros.importe, Objparametros.descripcion)
 
         res.send(result)
+
+
+
     } catch (error) {
-        res.send("error")
+        EscribirError(error)
     }
 
 })
@@ -61,7 +75,7 @@ app.put('/update', async function (req, res) {
 
         res.send(result)
     } catch (error) {
-        res.send("error")
+        EscribirError(error)
     }
 
 })
@@ -76,12 +90,21 @@ app.delete('/delete/:id', async function (req, res) {
 
         res.send(result)
     } catch (error) {
-        res.send("error")
+        EscribirError(error)
     }
 
 })
 
+    app.post('/ejemplo-req-json', (req, res) => {
 
+
+
+    let objRecibido = req.body;
+    console.log(objRecibido)
+     res.send(objRecibido);
+
+
+    })
 
 
 
