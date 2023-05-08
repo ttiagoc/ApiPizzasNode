@@ -4,13 +4,16 @@ import config from './dbconfig.js';
 import sql from 'mssql';
 import PizzaService from './src/services/pizzas-services.js';
 import express from 'express';
+import cors from 'cors'
 
 
 const app = express()
 const port = 3000
 
+
 let svc = new PizzaService();
 
+app.use(cors())
 app.use(express.json());
 
 app.get('/', async function (req, res) {
@@ -33,7 +36,7 @@ app.get('/pizzaId/:id', async function (req, res) {
          let result = await svc.getById(parametros.id)
 
          res.send(result)
-         
+
     } catch (error) {
 
         EscribirError(error)
