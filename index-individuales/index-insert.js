@@ -1,6 +1,6 @@
 
-import PizzaService from './misModulos/src/services/pizzas-services.js';
-import Pizza from './misModulos/src/models/Pizza.js'
+import PizzaService from '../src/services/pizzas-services.js';
+import Pizza from '../src/models/Pizza.js'
 
 let svc = new PizzaService();
 
