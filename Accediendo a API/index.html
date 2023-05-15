@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concección a API</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concección a API</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -16,14 +17,60 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
+
 <body>
+
+  <h3>Crear Pizza</h3>
+  
+    <form>
+    <input type="text" placeholder="Nombre Pizza" required id="nombre">
     
-    <center class="pt-5"><button  class="btn btn-primary"  onclick="CargarDatos()">CARGAR DATOS</button></center>
+    <input type="number" max="1" min="0" placeholder="Gluten?" width="20px"  required id="gluten">
+    
+    <input type="number" placeholder="Importe" required id="importe" >
+    <input type="text" placeholder="Descripcion" required id="descripcion">
+    <button type="submit" class="btn-md" onclick="InsertPizza()">Insertar Pizza</button>
+  </form>
 
-    <script src="script.js"></script>
+    <h3>Actualizar Pizza</h3>
 
-    <div id="contenedor"></div>
+    <form>
+  
+    <input type="number" placeholder="Id Pizza" required id="idUpd">
+    <input type="text" placeholder="Nombre Pizza" required id="nombreUpd">
+    
+    <input type="number" max="1" min="0" placeholder="Gluten?" width="20px"  required id="glutenUpd">
+    
+    <input type="number" placeholder="Importe" required id="importeUpd" >
+    <input type="text" placeholder="Descripcion" required id="descripcionUpd">
+    <button type="submit" class="btn-md" onclick="UpdatePizza()">Actualizar Pizza</button>
+
+  </form>
+
+
+
+  <center class="pt-5">
+
+
+    <input type="number" id="idPizza" placeholder="ingresa una id"  required>
+    <button type="submit" class="btn btn-primary" onclick="CargarDatos()">CARGAR POR ID</button>
+  </center>
+
+  <center class="pt-5"><button class="btn btn-primary" onclick="CargarAll()">CARGAR TODOS</button></center>
+
+  <center class="pt-5">
+
+
+    <input type="number" id="idPizzaDelete" placeholder="ingresa una id"  required>
+    <button type="submit" class="btn btn-primary" onclick="DeletePizza()">BORRAR POR ID</button>
+  </center>
+
+
+  <script src="script.js"></script>
+
+  <div id="contenedor"></div>
 </body>
+
 </html>

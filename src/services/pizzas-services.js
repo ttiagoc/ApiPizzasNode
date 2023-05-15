@@ -47,6 +47,7 @@ export default class PizzaService {
 
 
         } catch (error) {
+            
             EscribirError(error)
         }
         return resultado
