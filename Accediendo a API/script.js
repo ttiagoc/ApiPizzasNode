@@ -1,7 +1,7 @@
 
 
 
-function CargarDatos() {
+function CargarPorId() {
 
   let inputId = document.querySelector("#idPizza");
   let url = "http://localhost:3000/pizzaId/" + inputId.value
@@ -12,13 +12,18 @@ function CargarDatos() {
     .then((result) => {
 
       contenedor.innerHTML = ""
+      if(result.data.Id != undefined){
       contenedor.innerHTML += `<ul>
         <li>${result.data.Id}</li>
         <li>${result.data.Nombre}</li>
         <li>${result.data.Importe}</li>
         <li>${result.data.Descripcion}</li>
         <li>${result.data.LibreGluten}</li>
-        </ul>   `
+        </ul> `}
+        else{
+          contenedor.innerHTML = "<h1 class='text-center'>NO HAY PIZZA CON ESE ID</h1>"
+
+        }
     })
     .catch((error) => {
       console.log(error);
@@ -67,6 +72,7 @@ function InsertPizza() {
     "descripcion": descripcion
 
   });
+
 
 
   const options = {

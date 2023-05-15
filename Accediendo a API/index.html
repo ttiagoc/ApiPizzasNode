@@ -21,56 +21,65 @@
 </head>
 
 <body>
+  <div class="container pt-5">
 
-  <h3>Crear Pizza</h3>
+  <h3 class="text-center">Crear Pizza</h3>
   
     <form>
     <input type="text" placeholder="Nombre Pizza" required id="nombre">
     
-    <input type="number" max="1" min="0" placeholder="Gluten?" width="20px"  required id="gluten">
+    <input type="number" max="1" min="0" placeholder="Gluten?" width="20px"  required id="gluten" style="width: 200px;">
     
     <input type="number" placeholder="Importe" required id="importe" >
     <input type="text" placeholder="Descripcion" required id="descripcion">
-    <button type="submit" class="btn-md" onclick="InsertPizza()">Insertar Pizza</button>
+    <button type="submit" class="btn btn-primary" onclick="InsertPizza()">Insertar Pizza</button>
   </form>
 
-    <h3>Actualizar Pizza</h3>
+    
+    <h3 class="pt-5 text-center">Actualizar Pizza</h3>
+ 
 
     <form>
   
-    <input type="number" placeholder="Id Pizza" required id="idUpd">
+    <input type="number" placeholder="Id Pizza" required id="idUpd" >
     <input type="text" placeholder="Nombre Pizza" required id="nombreUpd">
     
-    <input type="number" max="1" min="0" placeholder="Gluten?" width="20px"  required id="glutenUpd">
+    <input type="number" max="1" min="0" placeholder="Gluten?" width="20px"  required id="glutenUpd" style="width: 200px;">
     
-    <input type="number" placeholder="Importe" required id="importeUpd" >
+    <input type="number" placeholder="Importe" required id="importeUpd">
+    
     <input type="text" placeholder="Descripcion" required id="descripcionUpd">
-    <button type="submit" class="btn-md" onclick="UpdatePizza()">Actualizar Pizza</button>
+    <center class="pt-3">
+    <button type="submit" class="btn btn-primary" onclick="UpdatePizza()">Actualizar Pizza</button>
+  </center>
 
   </form>
 
 
 
-  <center class="pt-5">
+  <center class="pt-3">
 
-
+    <h3 class="pt-5 text-center">Cargar Pizza por ID</h3>
     <input type="number" id="idPizza" placeholder="ingresa una id"  required>
-    <button type="submit" class="btn btn-primary" onclick="CargarDatos()">CARGAR POR ID</button>
+    <button type="submit" class="btn btn-primary" onclick="CargarPorId()">CARGAR POR ID</button>
   </center>
-
-  <center class="pt-5"><button class="btn btn-primary" onclick="CargarAll()">CARGAR TODOS</button></center>
+  <h3 class="pt-5 text-center">Cargar todas las Pizzas</h3>
+  <center class="pt-3"><button class="btn btn-primary" onclick="CargarAll()">CARGAR TODOS</button></center>
 
   <center class="pt-5">
 
-
+    <h3 class="pt-5 text-center">Borrar Pizza por ID</h3>
     <input type="number" id="idPizzaDelete" placeholder="ingresa una id"  required>
-    <button type="submit" class="btn btn-primary" onclick="DeletePizza()">BORRAR POR ID</button>
+    <button type="submit" class="btn btn-danger" onclick="DeletePizza()">BORRAR POR ID</button>
   </center>
+
+
 
 
   <script src="script.js"></script>
 
   <div id="contenedor"></div>
+</div>
 </body>
 
 </html>
