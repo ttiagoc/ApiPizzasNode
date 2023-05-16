@@ -15,8 +15,9 @@ let svc = new PizzaService();
 
 app.use(cors())
 app.use(express.json());
+app.use(express.static('public'));
 
-app.get('/', async function (req, res) {
+app.get('/API', async function (req, res) {
     try {
 
         let parametros = req.query

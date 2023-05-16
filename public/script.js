@@ -32,7 +32,7 @@ function CargarPorId() {
 
 function CargarAll() {
   axios
-    .get("http://localhost:3000/")
+    .get("http://localhost:3000/API")
     .then((result) => {
       console.log(result.data);
       let arr = result.data
@@ -146,7 +146,7 @@ function UpdatePizza() {
 function DeletePizza() {
 
   let inputDelete = document.querySelector("#idPizzaDelete");
-  let url = "http://localhost:3000/delete/" + inputDelete.value
+  let url = "http://localhost:3000/delete" + inputDelete.value
   let contenedor = document.querySelector("#contenedor");
 
   axios

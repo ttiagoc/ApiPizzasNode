@@ -57,3 +57,6 @@
    RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
    RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
    RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
+   ConnectionError: Failed to connect to A-PHZ2-LUM-19:1433 in 15000ms 
+   ConnectionError: Failed to connect to A-PHZ2-LUM-19:1433 in 15000ms 
+   RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
