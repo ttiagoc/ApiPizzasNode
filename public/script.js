@@ -4,7 +4,7 @@
 function CargarPorId() {
 
   let inputId = document.querySelector("#idPizza");
-  let url = "http://localhost:3000/pizzaId/" + inputId.value
+  let url = "http://localhost:3000/api/pizzas/pizzaId/" + inputId.value
   let contenedor = document.querySelector("#contenedor");
 
   axios
@@ -32,24 +32,54 @@ function CargarPorId() {
 
 function CargarAll() {
   axios
-    .get("http://localhost:3000/API")
+    .get("http://localhost:3000/api/pizzas")
     .then((result) => {
       console.log(result.data);
       let arr = result.data
 
       let contenedor = document.querySelector("#contenedor");
       contenedor.innerHTML = ""
-      arr.map((item, index) => {
 
-        contenedor.innerHTML += `<ul>
-        <li>${item.Id}</li>
-        <li>${item.Nombre}</li>
-        <li>${item.Importe}</li>
-        <li>${item.Descripcion}</li>
-        <li>${item.LibreGluten}</li>
-        </ul>   `
-      })
 
+      contenedor.innerHTML += `
+      <table class="table">
+      <thead>
+        <tr>
+         
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Importe</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">LibreGluten</th>
+        </tr>
+      </thead>
+      <tbody>
+      `
+     
+      arr.map((item,index) => {
+
+        contenedor.innerHTML += ` 
+      
+       
+    <tr>
+     
+      <td>${item.Id}</td>
+      <td>${item.Nombre}</td>
+      <td>${item.Importe}</td>
+      <td>${item.Descripcion}</td>
+      <td>${item.LibreGluten}</td>
+    </tr> 
+    <br>
+    -----------------------------
+    <br>
+        
+        `
+      })  
+      
+      contenedor.innerHTML += `
+      </tbody>
+      </table>  
+      `
     })
 
     .catch((error) => {
@@ -77,7 +107,7 @@ function InsertPizza() {
 
   const options = {
     method: 'POST',
-    url: 'http://localhost:3000/insert',
+    url: 'http://localhost:3000/api/pizzas/insert',
     headers: {
       'content-type': 'application/json',
       'X-RapidAPI-Key': 'your-rapidapi-key',
@@ -120,7 +150,7 @@ function UpdatePizza() {
 
   const options = {
     method: 'PUT',
-    url: 'http://localhost:3000/update',
+    url: 'http://localhost:3000/api/pizzas/update',
     headers: {
       'content-type': 'application/json',
       'X-RapidAPI-Key': 'your-rapidapi-key',
@@ -146,7 +176,7 @@ function UpdatePizza() {
 function DeletePizza() {
 
   let inputDelete = document.querySelector("#idPizzaDelete");
-  let url = "http://localhost:3000/delete" + inputDelete.value
+  let url = "http://localhost:3000/api/pizzas/delete" + inputDelete.value
   let contenedor = document.querySelector("#contenedor");
 
   axios
