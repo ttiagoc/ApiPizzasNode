@@ -5,7 +5,7 @@ function CargarPorId() {
 
   let inputId = document.querySelector("#idPizza");
   let url = "http://localhost:3000/api/pizzas/pizzaId/" + inputId.value
-  let contenedor = document.querySelector("#contenedor");
+  let contenedor = document.querySelector("#contenedor2");
 
   
   
@@ -177,13 +177,19 @@ function UpdatePizza() {
 function DeletePizza() {
 
   let inputDelete = document.querySelector("#idPizzaDelete");
-  let url = "http://localhost:3000/api/pizzas/delete" + inputDelete.value
-  let contenedor = document.querySelector("#contenedor");
+  let url = "http://localhost:3000/api/pizzas/delete/" + inputDelete.value
+  let contenedor3 = document.querySelector("#contenedor3");
 
+  
   axios
     .delete(url)
     .then((result) => {
 
+      if (result.data == 1) {
+        contenedor3.innerHTML = "<h1 class='text-center'>BORRADO CON ÉXITO</h1>"
+      }else{
+        contenedor3.innerHTML = "<h1 class='text-center'>NO EXISTE PIZZA CON ESE ID</h1>"
+      }
       console.log(result.data)
     })
     .catch((error) => {
