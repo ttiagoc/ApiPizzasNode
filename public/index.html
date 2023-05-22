@@ -22,10 +22,16 @@
 
 <body>
   <div class="container pt-5">
+    <h3 class="pt-5 text-center">Cargar todas las Pizzas</h3>
+    <center class="pt-3"><button class="btn btn-primary" onclick="CargarAll()">CARGAR TODOS</button>  <button class="btn btn-danger" onclick="Clear_CargarAll()" id="ClearButton" disabled>LIMPIAR</button></center>
+   
+    <div id="contenedor" class="pt-5"></div>
+
+    
 
   <h3 class="text-center">Crear Pizza</h3>
   
-    <form>
+    <!-- <form>
     <input type="text" placeholder="Nombre Pizza" required id="nombre">
     
     <input type="number" max="1" min="0" placeholder="Gluten?" width="20px"  required id="gluten" style="width: 200px;">
@@ -33,11 +39,40 @@
     <input type="number" placeholder="Importe" required id="importe" >
     <input type="text" placeholder="Descripcion" required id="descripcion">
     <button type="submit" class="btn btn-primary" onclick="InsertPizza()">Insertar Pizza</button>
+  </form> -->
+
+
+  <form class="">
+    <div class="form-group">
+      <label for="nombrePizza">Nombre Pizza</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Nombre Pizza">
+    </div>
+   
+    <div class="form-group">
+      <label >¿Gluten?</label>
+      <input type="number" max="1" min="0"  class="form-control" id="gluten" placeholder="Gluten?">
+    </div>
+    <div class="form-group">
+      <label >Importe</label>
+      <input type="number" class="form-control" id="importe" placeholder="Importe">
+    </div>
+    <div class="form-group">
+      <label >Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" placeholder="Descripcion">
+    </div>
+   
+    <button type="submit" class="btn btn-primary"  onclick="InsertPizza()">Crear</button>
   </form>
+
+
+
+
+
+
 
     
     <h3 class="pt-5 text-center">Actualizar Pizza</h3>
- 
+<!--  
 
     <form>
   
@@ -53,7 +88,37 @@
     <button type="submit" class="btn btn-primary" required onclick="UpdatePizza()">Actualizar Pizza</button>
   </center>
 
+  </form> -->
+
+
+  <form class="">
+
+    <div class="form-group">
+      <label >Id</label>
+      <input type="number" class="form-control" id="idUpd" placeholder="idPizza">
+    </div>
+    <div class="form-group">
+      <label for="nombrePizza">Nombre Pizza</label>
+      <input type="text" class="form-control" id="nombreUpd" placeholder="Nombre Pizza">
+    </div>
+
+    <div class="form-group">
+      <label >¿Gluten?</label>
+      <input type="number" max="1" min="0"  class="form-control" id="glutenUpd" placeholder="Gluten?">
+    </div>
+    <div class="form-group">
+      <label >Importe</label>
+      <input type="number" class="form-control" id="importeUpd" placeholder="Importe">
+    </div>
+    <div class="form-group">
+      <label >Descripcion</label>
+      <input type="text" class="form-control" id="descripcionUpd" placeholder="Descripcion">
+    </div>
+   
+    <button type="submit" class="btn btn-primary"  onclick="UpdatePizza()">Actualizar</button>
   </form>
+
+
 
 
 
@@ -63,8 +128,8 @@
     <input type="number" id="idPizza" placeholder="ingresa una id"  required>
     <button type="submit" class="btn btn-primary" onclick="CargarPorId()">CARGAR POR ID</button>
   </center>
-  <h3 class="pt-5 text-center">Cargar todas las Pizzas</h3>
-  <center class="pt-3"><button class="btn btn-primary" onclick="CargarAll()">CARGAR TODOS</button></center>
+
+
 
   <center class="pt-5">
 
@@ -78,7 +143,7 @@
 
   <script src="script.js"></script>
 
-  <div id="contenedor"></div>
+ 
 </div>
 </body>
 

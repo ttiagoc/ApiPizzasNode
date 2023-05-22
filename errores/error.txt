@@ -63,3 +63,5 @@
    RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
    RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
    RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
+   RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
+   RequestError: Validation failed for parameter 'pImporte'. Invalid number. 

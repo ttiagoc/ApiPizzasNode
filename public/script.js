@@ -7,6 +7,8 @@ function CargarPorId() {
   let url = "http://localhost:3000/api/pizzas/pizzaId/" + inputId.value
   let contenedor = document.querySelector("#contenedor");
 
+  
+  
   axios
     .get(url)
     .then((result) => {
@@ -37,16 +39,16 @@ function CargarAll() {
       console.log(result.data);
       let arr = result.data
 
+      document.querySelector("#ClearButton").disabled = false;
+
       let contenedor = document.querySelector("#contenedor");
       contenedor.innerHTML = ""
 
-
       contenedor.innerHTML += `
-      <table class="table">
+      <table class="table table-bordered">
       <thead>
         <tr>
-         
-          <th scope="col">Id</th>
+        <th scope="col">Id</th>
           <th scope="col">Nombre</th>
           <th scope="col">Importe</th>
           <th scope="col">Descripcion</th>
@@ -54,38 +56,38 @@ function CargarAll() {
         </tr>
       </thead>
       <tbody>
-      `
-     
-      arr.map((item,index) => {
-
-        contenedor.innerHTML += ` 
-      
-       
-    <tr>
-     
-      <td>${item.Id}</td>
-      <td>${item.Nombre}</td>
-      <td>${item.Importe}</td>
-      <td>${item.Descripcion}</td>
-      <td>${item.LibreGluten}</td>
-    </tr> 
-    <br>
-    -----------------------------
-    <br>
-        
-        `
-      })  
-      
-      contenedor.innerHTML += `
+        ${arr.map(item   => `
+          <tr>
+          
+          <td>${item.Id}</td>
+          <td>${item.Nombre}</td>
+          <td>${item.Importe}</td>
+          <td>${item.Descripcion}</td>
+          <td>${item.LibreGluten}</td>
+          </tr>
+        `).join('')}
       </tbody>
-      </table>  
-      `
+    </table>
+    `;
+    
+
+
+
+     
     })
 
     .catch((error) => {
       console.log(error);
     });
 }
+
+function Clear_CargarAll(){
+  let contenedor = document.querySelector("#contenedor");
+  
+  document.querySelector("#ClearButton").disabled = true;
+  contenedor.innerHTML = ""
+}
+
 
 function InsertPizza() {
 
@@ -94,14 +96,14 @@ function InsertPizza() {
   let importe = document.getElementById("importe").value
   let descripcion = document.getElementById("descripcion").value
 
-  const params = JSON.stringify({
+  const params = {
 
     "nombre": nombre,
     "libreGluten": gluten,
     "importe": importe,
     "descripcion": descripcion
 
-  });
+  };
 
 
 
@@ -110,7 +112,6 @@ function InsertPizza() {
     url: 'http://localhost:3000/api/pizzas/insert',
     headers: {
       'content-type': 'application/json',
-      'X-RapidAPI-Key': 'your-rapidapi-key',
       'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
     },
     data: params
@@ -137,7 +138,7 @@ function UpdatePizza() {
   let importe = document.getElementById("importeUpd").value
   let descripcion = document.getElementById("descripcionUpd").value
 
-  let params = JSON.stringify({
+  let params = {
 
     "id": id,
     "nombre": nombre,
@@ -145,7 +146,7 @@ function UpdatePizza() {
     "importe": importe,
     "descripcion": descripcion
 
-  });
+  };
 
 
   const options = {
@@ -153,7 +154,7 @@ function UpdatePizza() {
     url: 'http://localhost:3000/api/pizzas/update',
     headers: {
       'content-type': 'application/json',
-      'X-RapidAPI-Key': 'your-rapidapi-key',
+     
       'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
     },
     data: params
