@@ -1,5 +1,5 @@
 import PizzaService from '../../src/services/pizzas-services.js';
-import express, {Router} from 'express';
+import {Router} from 'express';
 
 const router = Router()
 
@@ -7,7 +7,6 @@ const svc = new PizzaService();
 
 router.get('/', async function (req, res) {
     try {
-
         let parametros = req.query
         let result = await svc.getAll(parametros.top, parametros.orderField, parametros.sortOrder)
         res.send(result)

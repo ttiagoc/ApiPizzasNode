@@ -65,3 +65,9 @@
    RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
    RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
    RequestError: Validation failed for parameter 'pImporte'. Invalid number. 
+    PizzaService.GetAll ConnectionError: Port for SQLEXPESS not found in DESKTOP-P8MR2F6 
+    PizzaService.GetAll ConnectionError: Port for SQLEXPESS not found in DESKTOP-P8MR2F6 
+    PizzaService.GetAll ConnectionError: Port for SQLEXPESS not found in DESKTOP-P8MR2F6 
+    PizzaService.GetAll ConnectionError: Port for SQLEXPESS not found in DESKTOP-P8MR2F6 
+    PizzaService.GetAll ConnectionError: Port for SQLEXPESS not found in DESKTOP-P8MR2F6 
+    PizzaService.Insert: RequestError: Validation failed for parameter 'pImporte'. Invalid number. 

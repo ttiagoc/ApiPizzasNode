@@ -9,16 +9,6 @@ export default class PizzaService {
     getAll = async (top, orderField, sortOrder) => {
         let resultado = null
 
-        /*  let queryTop = ""
-         let queryOrderField = ""
-         let querySortOrder = ""
- 
-        if(top != null){queryTop = "TOP " + top}
-         if(sortOrder != null){querySortOrder = sortOrder}
-         if(orderField != null){queryOrderField = "ORDER BY " + orderField}else{
-              querySortOrder = ""
-         }  */
-
         console.log("Estoy en : PizzaService.GetAll")
 
         try {
@@ -29,8 +19,8 @@ export default class PizzaService {
             resultado = result.recordsets[0]
 
         } catch (error) {
-            //console.log(error)
-            EscribirError(error)
+            
+            EscribirError(" PizzaService.GetAll: " + error)
         }
         return resultado;
     }
@@ -48,7 +38,7 @@ export default class PizzaService {
 
         } catch (error) {
             
-            EscribirError(error)
+            EscribirError(" PizzaService.getById: " + error)
         }
         return resultado
     }
@@ -64,7 +54,7 @@ export default class PizzaService {
 
 
         } catch (error) {
-            EscribirError(error)
+            EscribirError(" PizzaService.deleteById: " + error)
         }
         return resultado
     }
@@ -83,7 +73,7 @@ export default class PizzaService {
             resultado = result.rowsAffected;
 
         } catch (error) {
-            EscribirError(error)
+            EscribirError(" PizzaService.Insert: " + error)
         }
         return resultado
     }
@@ -104,7 +94,7 @@ export default class PizzaService {
             resultado = result.rowsAffected;
 
         } catch (error) {
-            EscribirError(error)
+            EscribirError(" PizzaService.Update: " + error)
         }
         return resultado
     }

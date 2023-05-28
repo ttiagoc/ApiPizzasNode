@@ -1,14 +1,12 @@
 
-
+const URL_BASE = "http://localhost:5000/api/pizzas/";
 
 function CargarPorId() {
 
   let inputId = document.querySelector("#idPizza");
-  let url = "http://localhost:3000/api/pizzas/pizzaId/" + inputId.value
+  let url =  URL_BASE + 'pizzaId/' +  inputId.value
   let contenedor = document.querySelector("#contenedor2");
 
-  
-  
   axios
     .get(url)
     .then((result) => {
@@ -34,7 +32,7 @@ function CargarPorId() {
 
 function CargarAll() {
   axios
-    .get("http://localhost:3000/api/pizzas")
+    .get(URL_BASE)
     .then((result) => {
       console.log(result.data);
       let arr = result.data
@@ -109,7 +107,7 @@ function InsertPizza() {
 
   const options = {
     method: 'POST',
-    url: 'http://localhost:3000/api/pizzas/insert',
+    url: URL_BASE + 'insert',
     headers: {
       'content-type': 'application/json',
       'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
@@ -151,10 +149,9 @@ function UpdatePizza() {
 
   const options = {
     method: 'PUT',
-    url: 'http://localhost:3000/api/pizzas/update',
+    url: URL_BASE + 'update',
     headers: {
       'content-type': 'application/json',
-     
       'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
     },
     data: params
@@ -177,7 +174,7 @@ function UpdatePizza() {
 function DeletePizza() {
 
   let inputDelete = document.querySelector("#idPizzaDelete");
-  let url = "http://localhost:3000/api/pizzas/delete/" + inputDelete.value
+  let url = URL_BASE + "delete/" + inputDelete.value
   let contenedor3 = document.querySelector("#contenedor3");
 
   

@@ -1,13 +1,10 @@
-import config from './dbconfig.js';
-import sql from 'mssql';
-import PizzaService from './src/services/pizzas-services.js';
 import express, {Router} from 'express';
 import cors from 'cors'
 import pizzaRouter from "./src/controllers/pizzaController.js";
-
+import 'dotenv/config'
 
 const app = express()
-const port = 3000
+const port = process.env.HTTP_PORT;
 
 //Middlewares
 
