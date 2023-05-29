@@ -20,11 +20,11 @@ router.get('/', async function (req, res) {
 router.get('/pizzaId/:id', async function (req, res) {
     try {
 
-        let parametros = req.params
+        let parametros = req.params.id
 
-        let incluirIngredientes = (typeof a)
+        let incluirIngredientes = (typeof req.query.incluirIngredientes !== 'undefined' && req.query.incluirIngredientes.toLowerCase() === 'true')
 
-         let result = await svc.getById(parametros.id)
+         let result = await svc.getById(parametros,incluirIngredientes)
 
          res.send(result)
 
@@ -38,19 +38,9 @@ router.get('/pizzaId/:id', async function (req, res) {
 router.post('/insert', async function (req, res) {
     try {
 
-        // let parametros = req.query
-        // console.log(parametros)
-        // let result = await svc.Insert(parametros.nombre, parametros.glutenFree, parametros.importe, parametros.descripcion)
-
-  
         let Objparametros = req.body
-       
-
         let result = await svc.Insert(Objparametros.nombre, Objparametros.glutenFree, Objparametros.importe, Objparametros.descripcion)
-
         res.send(result)
-
-
 
     } catch (error) {
         EscribirError(error)
@@ -61,15 +51,10 @@ router.post('/insert', async function (req, res) {
 router.put('/update', async function (req, res) {
     try {
 
-        // let parametros = req.query
-        // let result = await svc.Update(parametros.id, parametros.nombre, parametros.glutenFree, parametros.importe, parametros.descripcion)
-
         let Objparametros = req.body
-       
         let result = await svc.Update(Objparametros.id,Objparametros.nombre, Objparametros.glutenFree, Objparametros.importe, Objparametros.descripcion)
-
         res.send(result)
-
+        
     } catch (error) {
         EscribirError(error)
     }

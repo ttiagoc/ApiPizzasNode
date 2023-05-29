@@ -93,3 +93,16 @@
     PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas2'. 
     IngredientexPizzaService.GetAll: RequestError: Invalid object name 'IngredientesxPizza'. 
     IngredientexPizzaService.GetAll: RequestError: Invalid object name 'IngredientesxPizza'. 
+    IngredientexPizzaService.Insert: RequestError: Cannot insert the value NULL into column 'IdIngrediente', table 'DAI-Pizzas2.dbo.IngredientesXPizzas'; column does not allow nulls. INSERT fails. 
+    IngredientexPizzaService.Insert: RequestError: Cannot insert the value NULL into column 'IdIngrediente', table 'DAI-Pizzas2.dbo.IngredientesXPizzas'; column does not allow nulls. INSERT fails. 
+    IngredientexPizzaService.Insert: RequestError: Cannot insert the value NULL into column 'IdIngrediente', table 'DAI-Pizzas2.dbo.IngredientesXPizzas'; column does not allow nulls. INSERT fails. 
+    IngredientexPizzaService.Insert: RequestError: Cannot insert the value NULL into column 'IdIngrediente', table 'DAI-Pizzas2.dbo.IngredientesXPizzas'; column does not allow nulls. INSERT fails. 
+    IngredientexPizzaService.Insert: RequestError: Cannot insert the value NULL into column 'IdIngrediente', table 'DAI-Pizzas2.dbo.IngredientesXPizzas'; column does not allow nulls. INSERT fails. 
+    IngredientexPizzaService.Insert: RequestError: Cannot insert the value NULL into column 'IdIngrediente', table 'DAI-Pizzas2.dbo.IngredientesXPizzas'; column does not allow nulls. INSERT fails. 
+    IngredientexPizzaService.Insert: RequestError: Cannot insert the value NULL into column 'IdIngrediente', table 'DAI-Pizzas2.dbo.IngredientesXPizzas'; column does not allow nulls. INSERT fails. 
+    IngredientexPizzaService.Insert: RequestError: Cannot insert the value NULL into column 'IdIngrediente', table 'DAI-Pizzas2.dbo.IngredientesXPizzas'; column does not allow nulls. INSERT fails. 
+    IngredientexPizzaService.Update: RequestError: Must declare the scalar variable "@pUnidad". 
+    IngredientexPizzaService.Update: RequestError: Must declare the scalar variable "@pUnidad". 
+    IngredientexPizzaService.Update: RequestError: Must declare the scalar variable "@pUnidad". 
+    IngredientexPizzaService.getById: RequestError: Invalid column name 'Idinner'. 
+    PizzaService.getById: RequestError: Validation failed for parameter 'pid'. Invalid number. 

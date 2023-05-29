@@ -2,6 +2,7 @@
 import sql from 'mssql';
 import config from '../../dbconfig.js';
 import EscribirError from '../modules/log-helper.js';
+import IngredientexPizzaService from './ingredientesxpizzas-service.js';
 
 export default class PizzaService {
 
@@ -25,7 +26,7 @@ export default class PizzaService {
         return resultado;
     }
 
-    getById = async (id) => {
+    getById = async (id, incluir) => {
         let resultado = null
 
         console.log("Estoy en : PizzaService.GetByid")
@@ -35,6 +36,12 @@ export default class PizzaService {
 
             resultado = result.recordsets[0][0]
 
+          if (resultado != null && incluir == true) {
+            let svc2 = new IngredientexPizzaService();
+            resultado.ingredientes = await svc2.getById(id,incluir)
+           
+          }
+                    
 
         } catch (error) {
             

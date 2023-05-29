@@ -32,7 +32,7 @@ export default class IngredientexPizzaService {
         try {
             let pool = await sql.connect(config)
             let result = await pool.request().input('pid', sql.Int, id)
-            .query("SELECT * FROM IngredientesXPizzas WHERE Id = @pId")
+            .query("SELECT Ingredientes.Nombre, IngredientesXPizzas.Cantidad, Unidades.Nombre  FROM IngredientesXPizzas inner join Ingredientes on IngredientesxPizzas.IdIngrediente = Ingredientes.Id inner join Unidades on IngredientesXPizzas.IdUnidad = Unidades.Id WHERE IngredientesXPizzas.Id = @pId")
 
             resultado = result.recordsets[0][0]
 
@@ -49,7 +49,7 @@ export default class IngredientexPizzaService {
         console.log("Estoy en : IngredientexPizzaService.deleteById")
         try {
             let pool = await sql.connect(config)
-            let result = await pool.request().input('pid', sql.Int, id)
+            let result = await pool.request().input('pId', sql.Int, id)
             .query("DELETE FROM IngredientesXPizzas WHERE id = @pId")
 
             resultado = result.rowsAffected;
@@ -61,17 +61,18 @@ export default class IngredientexPizzaService {
         return resultado
     }
 
-    Insert = async (IdPizza, IdIngrediente, Cantidad, IdUnidad) => {
+    Insert = async (idPizza, idIngrediente, cantidad, idUnidad) => {
         let resultado = null
         console.log("Estoy en : IngredientexPizzaService.Insert")
         try {
             let pool = await sql.connect(config)
             let result = await pool.request()
-            .input('pIdPizza', sql.Int, IdPizza ?? '')
-            .input('pIdIngrediente', sql.Int, IdIngrediente)
-            .input('pCantidad', sql.Int, Cantidad )
-            .input('pIdUnidad', sql.Int, IdUnidad)
+            .input('pIdPizza', sql.Int, idPizza ?? '')
+            .input('pIdIngrediente', sql.Int, idIngrediente)
+            .input('pCantidad', sql.Int, cantidad )
+            .input('pIdUnidad', sql.Int, idUnidad)
                 .query("INSERT INTO IngredientesXPizzas(IdPizza,IdIngrediente,Cantidad,IdUnidad) VALUES(@pIdPizza, @pIdIngrediente, @pCantidad, @pIdUnidad)")
+
             resultado = result.rowsAffected;
 
         } catch (error) {
@@ -81,18 +82,18 @@ export default class IngredientexPizzaService {
     }
 
 
-    Update = async (id, IdPizza, IdIngrediente, Cantidad, IdUnidad) => {
+    Update = async (id, idPizza, idIngrediente, cantidad, idUnidad) => {
         let resultado = null
         console.log("Estoy en : IngredientexPizzaService.Update")
         try {
             let pool = await sql.connect(config)
             let result = await pool.request()
                 .input('pId', sql.Int, id)
-                .input('pIdPizza', sql.Int, IdPizza)
-                .input('pIdIngrediente', sql.Int, IdIngrediente)
-                .input('pCantidad', sql.Int, Cantidad)
-                .input('pIdUnidad', sql.Int, IdUnidad)
-                .query("UPDATE IngredientesXPizzas set IdPizza = @pIdPizza,IdIngrediente = @pIdIngrediente, Cantidad = @pCantidad, IdUnidad = @pUnidad WHERE IdIngredientexPizza = @pId")
+                .input('pIdPizza', sql.Int, idPizza)
+                .input('pIdIngrediente', sql.Int, idIngrediente)
+                .input('pCantidad', sql.Int, cantidad)
+                .input('pIdUnidad', sql.Int, idUnidad)
+                .query("UPDATE IngredientesXPizzas set IdPizza = @pIdPizza,IdIngrediente = @pIdIngrediente, Cantidad = @pCantidad, IdUnidad = @pIdUnidad WHERE id = @pId")
             resultado = result.rowsAffected;
 
         } catch (error) {

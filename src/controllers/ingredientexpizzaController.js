@@ -22,7 +22,7 @@ router.get('/ingredientexpizzaId/:id', async function (req, res) {
 
         let parametros = req.params
 
-        let incluirIngredientes = (typeof a)
+        
 
          let result = await svc.getById(parametros.id)
 
