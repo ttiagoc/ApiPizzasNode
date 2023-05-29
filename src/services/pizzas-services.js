@@ -5,7 +5,7 @@ import EscribirError from '../modules/log-helper.js';
 
 export default class PizzaService {
 
-
+    
     getAll = async (top, orderField, sortOrder) => {
         let resultado = null
 

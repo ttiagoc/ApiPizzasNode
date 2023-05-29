@@ -1,5 +1,6 @@
 import PizzaService from '../../src/services/pizzas-services.js';
 import {Router} from 'express';
+import EscribirError from '../modules/log-helper.js';
 
 const router = Router()
 
@@ -20,6 +21,8 @@ router.get('/pizzaId/:id', async function (req, res) {
     try {
 
         let parametros = req.params
+
+        let incluirIngredientes = (typeof a)
 
          let result = await svc.getById(parametros.id)
 
