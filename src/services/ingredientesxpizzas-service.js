@@ -5,7 +5,7 @@ import EscribirError from '../modules/log-helper.js';
 
 export default class IngredientexPizzaService {
 
-    
+
     getAll = async (top, orderField, sortOrder) => {
         let resultado = null
 
@@ -19,7 +19,7 @@ export default class IngredientexPizzaService {
             resultado = result.recordsets[0]
 
         } catch (error) {
-            
+
             EscribirError(" IngredientexPizzaService.GetAll: " + error)
         }
         return resultado;
@@ -32,13 +32,13 @@ export default class IngredientexPizzaService {
         try {
             let pool = await sql.connect(config)
             let result = await pool.request().input('pid', sql.Int, id)
-            .query("SELECT Ingredientes.Nombre, IngredientesXPizzas.Cantidad, Unidades.Nombre  FROM IngredientesXPizzas inner join Ingredientes on IngredientesxPizzas.IdIngrediente = Ingredientes.Id inner join Unidades on IngredientesXPizzas.IdUnidad = Unidades.Id WHERE IngredientesXPizzas.Id = @pId")
+                .query("SELECT Ingredientes.Nombre, IngredientesXPizzas.Cantidad, Unidades.Nombre  FROM IngredientesXPizzas inner join Ingredientes on IngredientesxPizzas.IdIngrediente = Ingredientes.Id inner join Unidades on IngredientesXPizzas.IdUnidad = Unidades.Id WHERE IngredientesXPizzas.IdPizza = @pId")
 
             resultado = result.recordsets[0][0]
 
 
         } catch (error) {
-            
+
             EscribirError(" IngredientexPizzaService.getById: " + error)
         }
         return resultado
@@ -50,7 +50,7 @@ export default class IngredientexPizzaService {
         try {
             let pool = await sql.connect(config)
             let result = await pool.request().input('pId', sql.Int, id)
-            .query("DELETE FROM IngredientesXPizzas WHERE id = @pId")
+                .query("DELETE FROM IngredientesXPizzas WHERE id = @pId")
 
             resultado = result.rowsAffected;
 
@@ -67,10 +67,10 @@ export default class IngredientexPizzaService {
         try {
             let pool = await sql.connect(config)
             let result = await pool.request()
-            .input('pIdPizza', sql.Int, idPizza ?? '')
-            .input('pIdIngrediente', sql.Int, idIngrediente)
-            .input('pCantidad', sql.Int, cantidad )
-            .input('pIdUnidad', sql.Int, idUnidad)
+                .input('pIdPizza', sql.Int, idPizza ?? '')
+                .input('pIdIngrediente', sql.Int, idIngrediente)
+                .input('pCantidad', sql.Int, cantidad)
+                .input('pIdUnidad', sql.Int, idUnidad)
                 .query("INSERT INTO IngredientesXPizzas(IdPizza,IdIngrediente,Cantidad,IdUnidad) VALUES(@pIdPizza, @pIdIngrediente, @pCantidad, @pIdUnidad)")
 
             resultado = result.rowsAffected;

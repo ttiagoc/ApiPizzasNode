@@ -6,10 +6,9 @@ import IngredientexPizzaService from './ingredientesxpizzas-service.js';
 
 export default class PizzaService {
 
-    
-    getAll = async (incluirIngredientes,top, orderField, sortOrder) => {
+
+    getAll = async (incluirIngredientes, top, orderField, sortOrder) => {
         let resultado = null
-        console.log(incluirIngredientes)
 
         console.log("Estoy en : PizzaService.GetAll")
 
@@ -20,26 +19,22 @@ export default class PizzaService {
 
             resultado = result.recordsets[0]
 
-            let cantPizzas = result.rowsAffected;
-
+            let cantPizzas = result.rowsAffected[0];
+            
             if (incluirIngredientes == true) {
-                
+
                 let svc3 = new IngredientexPizzaService();
 
                 for (let i = 0; i < cantPizzas; i++) {
-                    
-                    resultado[i].ingredientes = svc3.getById(index)
-                    console.log( resultado[i].ingredientes)
-                    
+
+                    resultado[i].ingredientes = await svc3.getById(resultado[i].Id)
+
                 }
             }
 
 
-
-
-
         } catch (error) {
-            
+
             EscribirError(" PizzaService.GetAll: " + error)
         }
         return resultado;
@@ -55,15 +50,15 @@ export default class PizzaService {
 
             resultado = result.recordsets[0][0]
 
-          if (resultado != null && incluir == true) {
-            let svc2 = new IngredientexPizzaService();
-            resultado.ingredientes = await svc2.getById(id,incluir)
-           
-          }
-                    
+            if (resultado != null && incluir == true) {
+                let svc2 = new IngredientexPizzaService();
+                resultado.ingredientes = await svc2.getById(id, incluir)
+
+            }
+
 
         } catch (error) {
-            
+
             EscribirError(" PizzaService.getById: " + error)
         }
         return resultado
