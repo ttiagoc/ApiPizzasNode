@@ -9,7 +9,10 @@ const svc = new PizzaService();
 router.get('/', async function (req, res) {
     try {
         let parametros = req.query
-        let result = await svc.getAll(parametros.top, parametros.orderField, parametros.sortOrder)
+
+        let incluirIngredientes2 = (typeof req.query.incluirIngredientes !== 'undefined' && req.query.incluirIngredientes.toLowerCase() === 'true')
+
+        let result = await svc.getAll(incluirIngredientes2,parametros.top, parametros.orderField, parametros.sortOrder)
         res.send(result)
     } catch (error) {
         res.send("error")

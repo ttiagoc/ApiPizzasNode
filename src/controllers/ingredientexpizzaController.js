@@ -39,7 +39,7 @@ router.post('/insert', async function (req, res) {
     try {
   
         let Objparametros = req.body    
-        let result = await svc.Insert(Objparametros.idPizza, Objparametros.idIngrediente, Objparametros.cantidad, Objparametros.idUnidad)
+        let result = await svc.Insert(Objparametros.nombre, Objparametros.idIngrediente, Objparametros.cantidad, Objparametros.idUnidad)
 
         res.send(result)
 

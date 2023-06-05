@@ -7,8 +7,9 @@ import IngredientexPizzaService from './ingredientesxpizzas-service.js';
 export default class PizzaService {
 
     
-    getAll = async (top, orderField, sortOrder) => {
+    getAll = async (incluirIngredientes,top, orderField, sortOrder) => {
         let resultado = null
+        console.log(incluirIngredientes)
 
         console.log("Estoy en : PizzaService.GetAll")
 
@@ -18,6 +19,24 @@ export default class PizzaService {
                 query("SELECT " + (top == null ? '' : "TOP " + top) + " * FROM Pizzas " + (orderField == null ? '' : "ORDER BY " + orderField) + " " + (sortOrder == null ? '' : sortOrder))
 
             resultado = result.recordsets[0]
+
+            let cantPizzas = result.rowsAffected;
+
+            if (incluirIngredientes == true) {
+                
+                let svc3 = new IngredientexPizzaService();
+
+                for (let i = 0; i < cantPizzas; i++) {
+                    
+                    resultado[i].ingredientes = svc3.getById(index)
+                    console.log( resultado[i].ingredientes)
+                    
+                }
+            }
+
+
+
+
 
         } catch (error) {
             

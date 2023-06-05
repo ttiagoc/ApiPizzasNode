@@ -3,6 +3,8 @@ import cors from 'cors'
 import pizzaRouter from "./src/controllers/pizzaController.js";
 import ingredientesxpizzaRouter from "./src/controllers/ingredientexpizzaController.js";
 import 'dotenv/config'
+import ingredientesRouter from "./src/controllers/ingredientesController.js"
+import unidadesRouter from "./src/controllers/unidadesController.js"
 
 const app = express()
 const port = process.env.HTTP_PORT;
@@ -17,6 +19,8 @@ app.use("/api/pizzas",pizzaRouter);
 //app.use("/api/unidades",unidadesRouter);
 //app.use("/api/ingredientes",ingredientesRouter);
 app.use("/api/ingredientesXPizzas",ingredientesxpizzaRouter);
+app.use("/api/ingredientes",ingredientesRouter);
+app.use("/api/unidades",unidadesRouter);
 
 //Endpoints
 

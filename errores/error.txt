@@ -106,3 +106,21 @@
     IngredientexPizzaService.Update: RequestError: Must declare the scalar variable "@pUnidad". 
     IngredientexPizzaService.getById: RequestError: Invalid column name 'Idinner'. 
     PizzaService.getById: RequestError: Validation failed for parameter 'pid'. Invalid number. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas2'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas2'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas2'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas2'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas2'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas2'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas2'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas2'. 
+    IngredientesService.Update: RequestError: Cannot insert the value NULL into column 'Nombre', table 'DAI-Pizzas.dbo.Ingredientes'; column does not allow nulls. UPDATE fails. 
+    IngredientesService.deleteById: RequestError: The DELETE statement conflicted with the REFERENCE constraint "FK_IngredientesXPizzas_Ingredientes". The conflict occurred in database "DAI-Pizzas", table "dbo.IngredientesXPizzas", column 'IdIngrediente'. 
+    IngredientesService.deleteById: RequestError: The DELETE statement conflicted with the REFERENCE constraint "FK_IngredientesXPizzas_Ingredientes". The conflict occurred in database "DAI-Pizzas", table "dbo.IngredientesXPizzas", column 'IdIngrediente'. 
+    IngredientesService.deleteById: RequestError: The DELETE statement conflicted with the REFERENCE constraint "FK_IngredientesXPizzas_Ingredientes". The conflict occurred in database "DAI-Pizzas", table "dbo.IngredientesXPizzas", column 'IdIngrediente'. 
+    IngredientesService.deleteById: RequestError: The DELETE statement conflicted with the REFERENCE constraint "FK_IngredientesXPizzas_Ingredientes". The conflict occurred in database "DAI-Pizzas", table "dbo.IngredientesXPizzas", column 'IdIngrediente'. 
+    PizzaService.GetAll: ReferenceError: index is not defined 
+    PizzaService.GetAll: RequestError: Incorrect syntax near 'true'. 
+    PizzaService.GetAll: ReferenceError: index is not defined 
+    PizzaService.GetAll: ReferenceError: index is not defined 
+    PizzaService.GetAll: ReferenceError: index is not defined 
