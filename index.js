@@ -1,4 +1,4 @@
-import express, {Router} from 'express';
+import express, { Router } from 'express';
 import cors from 'cors'
 import pizzaRouter from "./src/controllers/pizzaController.js";
 import ingredientesxpizzaRouter from "./src/controllers/ingredientexpizzaController.js";
@@ -15,12 +15,54 @@ app.use(cors())
 app.use(express.json());
 app.use(express.static('public'));
 
-app.use("/api/pizzas",pizzaRouter);
-//app.use("/api/unidades",unidadesRouter);
-//app.use("/api/ingredientes",ingredientesRouter);
-app.use("/api/ingredientesXPizzas",ingredientesxpizzaRouter);
-app.use("/api/ingredientes",ingredientesRouter);
-app.use("/api/unidades",unidadesRouter);
+
+const timepoTranscurrido = function (req, res, next) {
+    //console.log('Middleware (Antes): ' + new Date());
+    let hora1 = new Date();
+    next();
+    //console.log('Middleware (Despues): ' + new Date());
+    let hora2 = new Date();
+    let horaTranscurrida = String(hora2 - hora1);
+    console.log("Esta tarea duró: " + horaTranscurrida + "ms");
+}
+
+
+app.use(timepoTranscurrido);
+
+
+const checkApiKey = function (req, res, next) {
+
+    if (req.headers.apikey == undefined) {
+        res.status(401).send('Es necesaria una ApiKey');
+    } else {
+
+        if (req.headers.apikey == '123456789') {
+            next()
+        } else {
+            res.status(401).send('Unauthorized, es necesario una ApiKey Valida');
+        }
+    }
+
+
+}
+
+app.use(checkApiKey);
+
+
+const addHeaders = function (req, res, next) {
+
+    res.set("CreatedBy", "Tiago Coladonato y Tomas Marcus Forni")
+    next()
+
+}
+
+
+app.use(addHeaders);
+
+app.use("/api/pizzas", pizzaRouter);
+app.use("/api/ingredientesXPizzas", ingredientesxpizzaRouter);
+app.use("/api/ingredientes", ingredientesRouter);
+app.use("/api/unidades", unidadesRouter);
 
 //Endpoints
 
