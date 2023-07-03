@@ -5,6 +5,8 @@ import ingredientesxpizzaRouter from "./src/controllers/ingredientexpizzaControl
 import 'dotenv/config'
 import ingredientesRouter from "./src/controllers/ingredientesController.js"
 import unidadesRouter from "./src/controllers/unidadesController.js"
+import usuariosRouter from "./src/controllers/usuariosController.js"
+import AutenticationMiddleware from "./src/middlewares/autenticationMiddleware.js";
 
 const app = express()
 const port = process.env.HTTP_PORT;
@@ -15,7 +17,7 @@ app.use(cors())
 app.use(express.json());
 app.use(express.static('public'));
 
-
+/*
 const timepoTranscurrido = function (req, res, next) {
     //console.log('Middleware (Antes): ' + new Date());
     let hora1 = new Date();
@@ -59,10 +61,15 @@ const addHeaders = function (req, res, next) {
 
 app.use(addHeaders);
 
+*/
+
+let autenticationMiddleware = new AutenticationMiddleware();
+app.use(autenticationMiddleware.requireAutentication)
 app.use("/api/pizzas", pizzaRouter);
 app.use("/api/ingredientesXPizzas", ingredientesxpizzaRouter);
 app.use("/api/ingredientes", ingredientesRouter);
 app.use("/api/unidades", unidadesRouter);
+app.use("/api/usuarios", usuariosRouter);
 
 //Endpoints
 

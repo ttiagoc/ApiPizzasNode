@@ -137,3 +137,8 @@
     PizzaService.GetAll: ReferenceError: index is not defined 
     PizzaService.GetAll: ReferenceError: index is not defined 
     PizzaService.GetAll: TypeError: Cannot read properties of undefined (reading 'Id') 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas'. 
+    PizzaService.getById: ConnectionError: Login failed for user 'Pizzas'. 
+    PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas'. 
