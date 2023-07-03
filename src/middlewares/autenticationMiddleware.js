@@ -5,7 +5,9 @@ export default class AutenticationMiddleware {
 
     requireAutentication = async (req, res, next) => {
 
-        if (!(req.path.toLowerCase().startsWith('/pizzas'))) {
+        console.log("Estoy en El middleware de autenticación")
+
+        if (!(req.path.toLowerCase().startsWith('/api/pizzas'))) {
             return next();
         } else {
             if ((req.headers.token != undefined) && (req.headers.token != null)) {

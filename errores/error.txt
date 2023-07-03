@@ -142,3 +142,5 @@
     PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas'. 
     PizzaService.getById: ConnectionError: Login failed for user 'Pizzas'. 
     PizzaService.GetAll: ConnectionError: Login failed for user 'Pizzas'. 
+   UsuariosService/UpdateToken: TypeError: Cannot set properties of null (setting 'rowsAffected') 
+   UsuariosService/UpdateToken: TypeError: Cannot set properties of null (setting 'rowsAffected') 

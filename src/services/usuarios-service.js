@@ -3,7 +3,6 @@ import sql from 'mssql';
 import config from '../../dbconfig.js';
 import EscribirError from '../modules/log-helper.js';
 import { randomUUID } from "crypto";
-import { error } from 'console';
 
 export default class UsuariosService {
 
@@ -83,7 +82,7 @@ export default class UsuariosService {
     }
 
     updateTokenById = async (id) => {
-        let rowsAffected = 0;
+        let resultado = null;
         console.log("Estoy en : UsuariosService.updateTokenById")
         try{
 
@@ -97,11 +96,12 @@ export default class UsuariosService {
                 .input('pToken', sql.VarChar, token)    
                 .input('pTokenExpirationDate', sql.DateTime, tokenExpirationDate)                
                 .query('UPDATE Usuarios SET Token = @pToken, TokenExpirationDate = @pTokenExpirationDate WHERE Id = @pId ');
-            rowsAffected = result.rowsAffected; // devuelve la cantidad de registros afectados (1 en caso de haberse actualizado correctamente la pizza)
+            resultado.rowsAffected = result.rowsAffected; // devuelve la cantidad de registros afectados (1 en caso de haberse actualizado correctamente la pizza)
+            resultado.token = token;
         } catch (error){
             EscribirError("UsuariosService/UpdateToken: " + error);
         }
-        return rowsAffected;
+        return resultado;
     }
 
     login = async (usuario) => {
@@ -112,8 +112,7 @@ export default class UsuariosService {
             let username = usuario.UserName;
             let password = usuario.Password;
             let usuarioSeleccionado = await this.getByNamePassword(username, password);     
-                
-            let rowsAffected = await this.updateTokenById(usuarioSeleccionado.Id);            
+            await this.updateTokenById(usuarioSeleccionado.Id);            
             usuarioActualizado = await this.getById(usuarioSeleccionado.Id);       
         } catch (error){
             EscribirError("UsuariosService/Login: " + error);

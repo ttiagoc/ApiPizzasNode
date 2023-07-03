@@ -40,7 +40,7 @@ router.get('/usuarioId/:id', async function (req, res) {
     router.post('/login', async (req, res) => {
         try {
             let usuario = req.body;
-            let usuarioActualizado = await usuariosService.login(usuario);
+            let usuarioActualizado = await svc.login(usuario);
         
             if (usuarioActualizado != null) {
                 res.status(200).send(usuarioActualizado);

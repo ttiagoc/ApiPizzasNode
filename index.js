@@ -63,8 +63,9 @@ app.use(addHeaders);
 
 */
 
-let autenticationMiddleware = new AutenticationMiddleware();
-app.use(autenticationMiddleware.requireAutentication)
+ let autenticationMiddleware = new AutenticationMiddleware();
+ app.use(autenticationMiddleware.requireAutentication)
+
 app.use("/api/pizzas", pizzaRouter);
 app.use("/api/ingredientesXPizzas", ingredientesxpizzaRouter);
 app.use("/api/ingredientes", ingredientesRouter);
